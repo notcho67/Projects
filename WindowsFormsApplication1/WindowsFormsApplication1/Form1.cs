@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("My First Message!");
+            MessageBox.Show("My First Message!", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
         }
     }
 }
