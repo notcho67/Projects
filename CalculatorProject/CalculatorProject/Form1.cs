@@ -20,10 +20,7 @@ namespace CalculatorProject
         double total1 = 0;
         double total2 = 0;
 
-        bool plusButtonClicked = false;
-        bool minusButtonClicked = false;
-        bool multiplyButtonClicked = false;
-        bool divideButtonClicked = false;
+        string theOperator;
 
         private void btnOne_Click(object sender, EventArgs e)
         {
@@ -85,32 +82,28 @@ namespace CalculatorProject
             total1 += double.Parse(txtDisplay.Text);
             txtDisplay.Clear();
 
-            plusButtonClicked = true;
-            minusButtonClicked = false;
-            multiplyButtonClicked = false;
-            divideButtonClicked = false;
+            theOperator = "+";
         }
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            if (plusButtonClicked == true)
+            switch (theOperator)
             {
-                total2 = total1 + double.Parse(txtDisplay.Text);
-            }
-            
-            else if (minusButtonClicked == true)
-            {
-                total2 = total1 - double.Parse(txtDisplay.Text);
-            }
+                case "+":
+                    total2 = total1 + double.Parse(txtDisplay.Text);
+                    break;
 
-            else if (multiplyButtonClicked == true)
-            {
-                total2 = total1 * double.Parse(txtDisplay.Text);
-            }
-            
-            else if (divideButtonClicked == true)
-            {
-                total2 = total1 / double.Parse(txtDisplay.Text);
+                case "-":
+                    total2 = total1 - double.Parse(txtDisplay.Text);
+                    break;
+
+                case "*":
+                    total2 = total1 * double.Parse(txtDisplay.Text);
+                    break;
+
+                case "/":
+                    total2 = total1 / double.Parse(txtDisplay.Text);
+                    break;
             }
 
             txtDisplay.Text = total2.ToString();
@@ -127,10 +120,7 @@ namespace CalculatorProject
             total1 += double.Parse(txtDisplay.Text);
             txtDisplay.Clear();
 
-            plusButtonClicked = false;
-            minusButtonClicked = true;
-            multiplyButtonClicked = false;
-            divideButtonClicked = false;
+            theOperator = "-";
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
@@ -138,10 +128,7 @@ namespace CalculatorProject
             total1 += double.Parse(txtDisplay.Text);
             txtDisplay.Clear();
 
-            plusButtonClicked = false;
-            minusButtonClicked = false;
-            multiplyButtonClicked = true;
-            divideButtonClicked = false;
+            theOperator = "*";
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
@@ -149,10 +136,7 @@ namespace CalculatorProject
             total1 += double.Parse(txtDisplay.Text);
             txtDisplay.Clear();
 
-            plusButtonClicked = false;
-            minusButtonClicked = false;
-            multiplyButtonClicked = false;
-            divideButtonClicked = true;
+            theOperator = "/";
         }
     }
 }
