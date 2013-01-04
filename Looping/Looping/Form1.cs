@@ -19,16 +19,18 @@ namespace Looping
 
         private void button1_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             int loopStart = int.Parse(textBox1.Text);
             int loopEnd = int.Parse(textBox2.Text);
             int answer = 0;
+            int multiplyBy = int.Parse(textBox3.Text);
 
-            for (int i = loopStart; i < loopEnd; i++)
+            for (int i = loopStart; i <= loopEnd; i++)
             {
-                answer = answer + i;
-            }
+                answer = multiplyBy * i;
 
-            MessageBox.Show(answer.ToString());
+                listBox1.Items.Add(i + " times " + multiplyBy + " = " + answer.ToString());
+            }           
         }
     }
 }
