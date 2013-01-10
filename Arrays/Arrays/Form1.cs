@@ -105,5 +105,14 @@ namespace Arrays
                 listBox1.Items.Add(arrayElement);
             }
         }
+
+        enum Subjects { English, IT, Science, Design, Math };
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Subjects newSubject = Subjects.Science;
+
+            MessageBox.Show(newSubject.ToString());
+        }
     }
 }
